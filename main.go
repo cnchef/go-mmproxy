@@ -96,6 +96,11 @@ func loadAllowedSubnets() error {
 }
 
 func main() {
+	if len(os.Args) == 1 {
+		flag.Usage()
+		os.Exit(0)
+	}
+	
 	flag.Parse()
 	lvl := slog.LevelInfo
 	if Opts.Verbose > 0 {
